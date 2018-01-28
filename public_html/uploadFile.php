@@ -1,5 +1,5 @@
 <?php
-require_once "C:\\xampp\\htdocs\\PhpAudioDb\\Db\\connect.php";
+require_once "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\Db\\connect.php";
 
 function saveAudio($path){
     

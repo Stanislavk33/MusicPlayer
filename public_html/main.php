@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Audio DataBase</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet"  href="css/main.css">
     <script src="js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  
 </head>
 <body>
 <div id=main role=>

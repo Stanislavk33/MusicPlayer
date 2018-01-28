@@ -1,6 +1,6 @@
-<?php require_once "C:\\xampp\\htdocs\\PhpAudioDb\\Db\\connect.php";
-include "C:\\xampp\\htdocs\\PhpAudioDb\\public_html\\uploadFile.php";
-include "C:\\xampp\htdocs\\PhpAudioDb\\public_html\\main.php";
+<?php require_once "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\Db\\connect.php";
+include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\uploadFile.php";
+include "C:\\xampp\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\main.php";
   $databaseConnect = new DatabaseConnect();
 
   if(isset($_POST['saveAudio'])) 
@@ -26,6 +26,7 @@ include "C:\\xampp\htdocs\\PhpAudioDb\\public_html\\main.php";
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet"  href="css/main.css">
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
 
