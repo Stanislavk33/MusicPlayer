@@ -1,8 +1,8 @@
 <?php require_once "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\Db\\connect.php";
-include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\uploadFile.php";
 include "C:\\xampp\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\main.php";
-  $databaseConnect = new DatabaseConnect();
+include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\Controllers\\AudioController.php";
 
+  $databaseConnect = new DatabaseConnect();
   if(isset($_POST['saveAudio'])) 
   {
       $dir='uploads/';
@@ -15,8 +15,13 @@ include "C:\\xampp\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\main.php";
       }
   }
 
+  if(isset($_GET['deleteSong'] ))
+  {
+      deleteAudio( $_GET['deleteSong']);
+  }
+
 ?>
-<script></script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,24 +46,27 @@ include "C:\\xampp\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\main.php";
 
     <div>
 
-   <?php 
-      
-     
+   <?php
        $databaseConnect = new DatabaseConnect();
        $pdo= $databaseConnect->getPdo();
-        $stmt = $pdo->query('SELECT name FROM audios');
-
-   echo "<table class='table'>";
-  echo "<tr>";
-  echo    "<td>Name</td>";
-   echo   "<td>Delete </td>";
-  echo  "</tr>";
+        $stmt = $pdo->query('SELECT * FROM audios');
+    echo "<thead>";
+    echo "<table class=table>";
+    echo "<tr>";
+    echo    "<th>Name</td>";
+    echo   "<th>Delete </td>";
+    echo  "</tr>";
+    echo "</thead>";
         foreach ($stmt as $row)
 {
     echo   " <tr>";
-   echo  "<td >". $row['name']."</td>";
+   echo  "<td >". $row['Name']."</td>";
    echo "<td>" ;
-    echo "<button id='1'type='button' class='btn btn-danger'>Delete</button>";
+  // echo "<a href=\"delete.php?name=".$row['name']."\">Delete</a></td>";
+  echo  "<form action='' method='get' enctype='multipart/form-data'>";
+  echo "<button type='submit' class='btn btn-danger' name='deleteSong' value=".$row['id']." >Delete </>";
+   echo "</form></td>";
+    echo"</tr>";
 }
     ?>
     </div>

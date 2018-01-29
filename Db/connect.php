@@ -3,7 +3,7 @@ class DatabaseConnect{
 
 private $server = "localhost:3306";
 private $username = "root";
-private$password= "MySQL";
+private $password= "MySQL";
 private $db="audiodb";
 private $charset = 'utf8mb4';
 
