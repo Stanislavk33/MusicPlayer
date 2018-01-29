@@ -9,16 +9,17 @@ include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\Controllers\\A
       $audio_path=$dir.basename($_FILES['audioFile']['name']);
   
       if(move_uploaded_file($_FILES['audioFile']['tmp_name'],$audio_path))
-      {
-          
-          saveAudio($audio_path);
-      }
+        {
+           saveAudio($audio_path);
+        }
   }
 
   if(isset($_GET['deleteSong'] ))
-  {
+    {
       deleteAudio( $_GET['deleteSong']);
-  }
+
+      unset($_GET['deleteSong']);
+    }
 
 ?>
 
@@ -47,27 +48,28 @@ include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\Controllers\\A
     <div>
 
    <?php
-       $databaseConnect = new DatabaseConnect();
-       $pdo= $databaseConnect->getPdo();
+        $databaseConnect = new DatabaseConnect();
+        $pdo= $databaseConnect->getPdo();
         $stmt = $pdo->query('SELECT * FROM audios');
-    echo "<thead>";
-    echo "<table class=table>";
-    echo "<tr>";
-    echo    "<th>Name</td>";
-    echo   "<th>Delete </td>";
-    echo  "</tr>";
-    echo "</thead>";
+
+        echo "<thead>";
+        echo "<table class=table>";
+        echo "<tr>";
+        echo "<th>Name</td>";
+        echo   "<th>Delete </td>";
+        echo  "</tr>";
+        echo "</thead>";
+
         foreach ($stmt as $row)
-{
-    echo   " <tr>";
-   echo  "<td >". $row['Name']."</td>";
-   echo "<td>" ;
-  // echo "<a href=\"delete.php?name=".$row['name']."\">Delete</a></td>";
-  echo  "<form action='' method='get' enctype='multipart/form-data'>";
-  echo "<button type='submit' class='btn btn-danger' name='deleteSong' value=".$row['id']." >Delete </>";
-   echo "</form></td>";
-    echo"</tr>";
-}
+        {
+            echo "<tr>";
+            echo "<td >". $row['Name']."</td>";
+            echo "<td>" ;
+            echo "<form action='' method='get' enctype='multipart/form-data'>";
+            echo "<button type='submit' class='btn btn-danger' name='deleteSong' value=".$row['id']." >Delete </>";
+            echo "</form></td>";
+            echo "</tr>";
+        }
     ?>
     </div>
     
