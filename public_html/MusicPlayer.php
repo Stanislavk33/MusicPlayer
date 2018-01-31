@@ -2,6 +2,8 @@
 
 ?>
 
+<script>
+type="text/javascript" src="buffer-loader.js";
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,6 @@
 <body>
 
 <P>Test</P>
-
 
 </body>
 </html>

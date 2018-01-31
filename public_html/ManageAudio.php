@@ -1,6 +1,7 @@
 <?php require_once "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\Db\\connect.php";
 include "C:\\xampp\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\main.php";
 include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\Controllers\\AudioController.php";
+include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\resources\\config.php";
 
   $databaseConnect = new DatabaseConnect();
   if(isset($_POST['saveAudio'])) 
@@ -52,13 +53,13 @@ include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\Controllers\\A
         $pdo= $databaseConnect->getPdo();
         $stmt = $pdo->query('SELECT * FROM audios');
 
-        echo "<thead>";
+       
         echo "<table class=table>";
         echo "<tr>";
         echo "<th>Name</td>";
         echo   "<th>Delete </td>";
         echo  "</tr>";
-        echo "</thead>";
+     
 
         foreach ($stmt as $row)
         {
@@ -69,7 +70,10 @@ include "C:\\xampp\\htdocs\\PhpAudioDb\\MusicPlayer\\public_html\\Controllers\\A
             echo "<button type='submit' class='btn btn-danger' name='deleteSong' value=".$row['id']." >Delete </>";
             echo "</form></td>";
             echo "</tr>";
+           
         }
+        echo "</table>";
+        
     ?>
     </div>
     

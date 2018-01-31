@@ -90,17 +90,9 @@ function deleteAudio($Audioid)
     }
 
 
-
-
-
-
 function viewAudio()
 {
 
 }
-
-
-
-
 
 ?>
